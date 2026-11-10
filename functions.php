@@ -81,6 +81,7 @@ if ( ! function_exists( 'hello_elementor_setup' ) ) {
 			 */
 			add_theme_support( 'editor-styles' );
 			add_editor_style( 'assets/css/editor-styles.css' );
+			add_editor_style( 'assets/css/global-typography.css' );
 
 			/*
 			 * WooCommerce.
@@ -158,9 +159,30 @@ if ( ! function_exists( 'hello_elementor_scripts_styles' ) ) {
 				HELLO_ELEMENTOR_VERSION
 			);
 		}
+
+		hello_elementor_enqueue_global_typography();
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_scripts_styles' );
+
+if ( ! function_exists( 'hello_elementor_enqueue_global_typography' ) ) {
+	/**
+	 * Global heading and body scale for Completed Care.
+	 *
+	 * Loaded again after Elementor so kit and widget typography follow the same scale.
+	 *
+	 * @return void
+	 */
+	function hello_elementor_enqueue_global_typography() {
+		wp_enqueue_style(
+			'hello-elementor-global-typography',
+			HELLO_THEME_STYLE_URL . 'global-typography.css',
+			[],
+			HELLO_ELEMENTOR_VERSION
+		);
+	}
+}
+add_action( 'elementor/frontend/after_enqueue_styles', 'hello_elementor_enqueue_global_typography' );
 
 if ( ! function_exists( 'hello_elementor_register_elementor_locations' ) ) {
 	/**
