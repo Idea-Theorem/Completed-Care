@@ -21,5 +21,49 @@
       "padding": true,
       "units": [ "%", "px", "em", "rem", "vh", "vw" ]
     }
+  },
+  "styles": {
+    "typography": {
+      "fontSize": "16px",
+      "lineHeight": "1.6",
+      "fontWeight": "400"
+    },
+    "elements": {
+      "h1": {
+        "typography": {
+          "fontSize": "42px",
+          "fontWeight": "600",
+          "lineHeight": "1.25"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontSize": "32px",
+          "fontWeight": "600",
+          "lineHeight": "1.25"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontSize": "24px",
+          "fontWeight": "600",
+          "lineHeight": "1.25"
+        }
+      },
+      "h4": {
+        "typography": {
+          "fontSize": "20px",
+          "fontWeight": "600",
+          "lineHeight": "1.25"
+        }
+      },
+      "h5": {
+        "typography": {
+          "fontSize": "18px",
+          "fontWeight": "600",
+          "lineHeight": "1.25"
+        }
+      }
+    }
   }
 }
