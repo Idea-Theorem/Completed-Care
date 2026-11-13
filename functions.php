@@ -184,6 +184,24 @@ if ( ! function_exists( 'hello_elementor_enqueue_global_typography' ) ) {
 }
 add_action( 'elementor/frontend/after_enqueue_styles', 'hello_elementor_enqueue_global_typography' );
 
+if ( ! function_exists( 'hello_elementor_enqueue_sticky_header' ) ) {
+	/**
+	 * Keep the header sticky from the first paint.
+	 *
+	 * @return void
+	 */
+	function hello_elementor_enqueue_sticky_header() {
+		wp_enqueue_style(
+			'hello-elementor-sticky-header',
+			HELLO_THEME_STYLE_URL . 'sticky-header.css',
+			[],
+			HELLO_ELEMENTOR_VERSION
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'hello_elementor_enqueue_sticky_header', 20 );
+add_action( 'elementor/frontend/after_enqueue_styles', 'hello_elementor_enqueue_sticky_header' );
+
 if ( ! function_exists( 'hello_elementor_register_elementor_locations' ) ) {
 	/**
 	 * Register Elementor Locations.
