@@ -1,0 +1,46 @@
+/**
+ * Keep the site header sticky from the first paint.
+ * Elementor otherwise waits for a pointer or scroll event before fixing it.
+ */
+
+.elementor-location-header,
+#site-header {
+	position: sticky !important;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+}
+
+.admin-bar .elementor-location-header,
+.admin-bar #site-header {
+	top: 32px;
+}
+
+@media (max-width: 782px) {
+	.admin-bar .elementor-location-header,
+	.admin-bar #site-header {
+		top: 46px;
+	}
+}
+
+/* Leave the header in place when Elementor promotes an inner bar on pointer move. */
+.elementor-location-header .elementor-sticky.elementor-sticky--active,
+#site-header .elementor-sticky.elementor-sticky--active {
+	position: relative !important;
+	top: auto !important;
+	bottom: auto !important;
+	left: auto !important;
+	right: auto !important;
+	inset-inline-start: auto !important;
+	width: auto !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.elementor-location-header .elementor-sticky__spacer,
+.elementor-location-header + .elementor-sticky__spacer,
+#site-header .elementor-sticky__spacer,
+#site-header + .elementor-sticky__spacer {
+	display: none !important;
+	height: 0 !important;
+}
